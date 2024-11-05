@@ -10,7 +10,7 @@ from pydantic import Field
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load the model
-model_path = r"C:\Smarthub\llama_bot\src_test\Infergpt.pt"
+model_path = r"Path_to_your_model.pt"
 model = torch.load(model_path, map_location=device)
 model.eval()  # Set to evaluation mode
 
@@ -46,7 +46,7 @@ def create_prompt(question):
     return f" {question}"
 
 # Streamlit app
-st.title("InferGuru")
+st.title("Chatbot")
 st.write("Ask me anything!")
 
 # User input
@@ -59,7 +59,7 @@ if st.button("Search"):
         
         # Get the model's response
         answer = custom_llm(prompt_text)
-        answer= answer.split('|')[-1]
+        # answer= answer.split('|')[-1]
         st.write(answer)
     else:
         st.write("Please enter a question.")
