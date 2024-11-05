@@ -10,7 +10,7 @@ from sentence_transformers import SentenceTransformer
 ##################################################
 #######################CONFIG#####################
 # config = dotenv_values(".env")
-pdf_path = "iotc-user-guide.pdf"
+pdf_path = "path_to_your_pdf"
 ##################################################
 
 ####################MAIN############################
@@ -27,5 +27,5 @@ embeddings = SBERTEmbeddings()
 #embedding=OllamaEmbeddings(model="llama3",show_progress=True)
 
 vector_store = FAISS.from_texts(chunks, embedding=embeddings)
-vector_store.save_local(f"Infere_user_guide_embeddings")
+vector_store.save_local(f"local_doc_embeddings")
 #####################################################
